@@ -1,9 +1,10 @@
 <template>
-    <form class="add-form">
+    <form @submit="onSubmit" class="add-form">
         <div class="form-control">
             <label>Task</label>
             <input 
                 type="text" 
+                v-model="text"
                 name="text"
                 placeholder="Add Task"
             />
@@ -12,22 +13,23 @@
             <label>Date</label>
             <input
                 type="date"
+                v-model="date"
                 name="date"
-                placeholder="Add Date"
             />
         </div>
         <div class="form-control">
             <label>Time</label>
             <input
                 type="time"
+                v-model="time"
                 name="time"
-                placeholder="Add Time"
             />
         </div>
         <div class="form-control form-control-check">
             <label>Set Reminder</label>
             <input
                 type="checkbox"
+                v-model="reminder"
                 name="reminder"
             />
         </div>
@@ -43,6 +45,40 @@
 <script>
     export default {
         name: 'AddTask',
+        data() {
+            return {
+                text: '',
+                date: '',
+                time: '',
+                reminder: false,
+            }
+        },
+        methods: {
+            onSubmit(e) {
+                e.preventDefault();
+
+                if(!this.text) {
+                    alert('Please add a task')
+                    return
+                }
+
+                const newTask = {
+                    id: Math.floor(Math.random() * 100000),
+                    text: this.text,
+                    date: this.date,
+                    time: this.time,
+                    reminder: this.reminder
+                }
+
+                this.$emit('add-task', newTask)
+
+                // Clear the form after submission
+                this.text = ''
+                this.date = ''
+                this.time = ''
+                this.reminder = false
+            }
+        }
     }
 </script>
 
