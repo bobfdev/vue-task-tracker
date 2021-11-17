@@ -55,24 +55,24 @@ export default {
   },
   created() {
     this.tasks = [
-      {
-        id: 1,
-        text: 'Dentist Appointment',
-        day: 'March 1st at 8:30am',
-        reminder: true,
-      },
-      {
-        id: 2,
-        text: 'Haircut',
-        day: 'March 8th at 11:00am',
-        reminder: true,
-      },
-      {
-        id: 3,
-        text: 'Electric Bill Due',
-        day: 'March 31st at 12:00pm',
-        reminder: true,
-      },
+      // {
+      //   id: 1,
+      //   text: 'Dentist Appointment',
+      //   day: 'March 1st at 8:30am',
+      //   reminder: true,
+      // },
+      // {
+      //   id: 2,
+      //   text: 'Haircut',
+      //   day: 'March 8th at 11:00am',
+      //   reminder: true,
+      // },
+      // {
+      //   id: 3,
+      //   text: 'Electric Bill Due',
+      //   day: 'March 31st at 12:00pm',
+      //   reminder: true,
+      // },
     ]
   },
 }
